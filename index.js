@@ -9,6 +9,7 @@ var accountId = "";
 var server = "";
 var matchIDs = [];
 var normalGames = [];
+var teammatesAndEnemies = [];
 
 function go(name, serv){
     summonerName = name;
@@ -56,9 +57,31 @@ function matchHistory(){
                 }
             }
             console.log(normalGames);
-
+            getAllUsers();
         });
     });
+}
+
+function getAllUsers(){
+    for(var i = 0; i < normalGames.length; i++){
+        var url = "https://" + server + ".api.riotgames.com/lol/match/v3/matches/";
+        url += normalGames[i] + "?api_key=" + API_KEY;
+
+        https.get(url, res => {
+            res.setEncoding('utf8');
+            let body = "";
+            res.on("data", data => {
+                body += data;
+            });
+            res.on("end", end => {
+                body = JSON.parse(body);
+                for(var j = 0; j < 10; j++){
+                    teammatesAndEnemies.push(body.participantIdentities[j].player.summonerId);
+                }
+            });
+        });
+    }
+    // problem. cant continue from here, userlist not filled then.
 }
 
 // the start of everything
