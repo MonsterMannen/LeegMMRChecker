@@ -63,6 +63,7 @@ function matchHistory(){
 }
 
 function getAllUsers(){
+    var x = 0;
     for(var i = 0; i < normalGames.length; i++){
         var url = "https://" + server + ".api.riotgames.com/lol/match/v3/matches/";
         url += normalGames[i] + "?api_key=" + API_KEY;
@@ -78,10 +79,15 @@ function getAllUsers(){
                 for(var j = 0; j < 10; j++){
                     teammatesAndEnemies.push(body.participantIdentities[j].player.summonerId);
                 }
+                // this solution is insanely bad. callbacks are hard.
+                if(x++ == normalGames.length - 1){
+                    // last loop
+                    console.log("Found users: " + teammatesAndEnemies.length);
+                    // -> continue to next function
+                }
             });
         });
     }
-    // problem. cant continue from here, userlist not filled then.
 }
 
 // the start of everything
