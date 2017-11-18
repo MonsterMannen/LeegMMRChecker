@@ -1,11 +1,29 @@
-const VALUES = {
+module.exports.VALUES = {
     "BRONZE V": 1,
     "BRONZE IV": 2,
     "BRONZE III": 3,
     "BRONZE II": 4,
     "BRONZE I": 5,
-    "SILVER V": 6
-    // TODO add all zzzzz
+    "SILVER V": 6,
+    "SILVER IV": 7,
+    "SILVER III": 8,
+    "SILVER II": 9,
+    "SILVER I": 10,
+    "GOLD V": 11,
+    "GOLD IV": 12,
+    "GOLD III": 13,
+    "GOLD II": 14,
+    "GOLD I": 15,
+    "PLATINUM V": 16,
+    "PLATINUM IV": 17,
+    "PLATINUM III": 18,
+    "PLATINUM II": 19,
+    "PLATINUM I": 20,
+    "DIAMOND V": 21,
+    "DIAMOND IV": 22,
+    "DIAMOND III": 23,
+    "DIAMOND II": 24,
+    "DIAMOND I": 25,
+    "MASTER I": 26,
+    "CHALLENGER I": 27
 };
-
-exports.name = VALUES;
