@@ -157,8 +157,10 @@ function rankValues(){
 
 // the beginning of everything
 // ******************************
-summoner = "THESWIFTSCOUT XD";  // low level acc
-server = "euw";
+var args = process.argv.slice(2);
+
+summoner = args[0];
+server = args[1];
 
 go(summoner, servers[server.toUpperCase()]);
 // ******************************
